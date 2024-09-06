@@ -1,0 +1,102 @@
+Question 1
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'pairs' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts following parameters:
+#  1. INTEGER k
+#  2. INTEGER_ARRAY arr
+#
+
+def pairs(k, arr):
+    # Write your code here
+    count = 0
+    numbers = set(arr)
+    for num in arr:
+        if(num+k) in numbers:
+            count+=1
+        if(num-k) in numbers:
+            count+=1
+    return count//2
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    first_multiple_input = input().rstrip().split()
+
+    n = int(first_multiple_input[0])
+
+    k = int(first_multiple_input[1])
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = pairs(k, arr)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+
+
+Question 2
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'timeInWords' function below.
+#
+# The function is expected to return a STRING.
+# The function accepts following parameters:
+#  1. INTEGER h
+#  2. INTEGER m
+#
+
+def timeInWords(h, m):
+    # Write your code here
+    num_words = ["zero","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen","twenty","twenty one","twenty two","twenty three","twenty four","twenty five","twenty six","twenty seven","twenty eight","twenty nine"]
+    if m==0:
+        return f"{num_words[h]} o' clock"
+    elif m==1:
+        return f"one minute past {num_words[h]}"
+    elif m==15:
+        return f"quarter past {num_words[h]}"
+    elif m==30:
+        return f"half past {num_words[h]}"
+    elif m==45:
+        next_hour = (h%12)+1
+        return f"quarter to {num_words[next_hour]}"
+    elif m<30:
+        return f"{num_words[m]} minutes past {num_words[h]}"
+    else:
+        next_hour = (h%12)+1
+        return f"{num_words[60-m]} minutes to {num_words[next_hour]}"
+    
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    h = int(input().strip())
+
+    m = int(input().strip())
+
+    result = timeInWords(h, m)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
+
+
