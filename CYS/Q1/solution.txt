@@ -1,0 +1,6 @@
+ALGORITHM:
+After trying different type of decryptions, I found out AES(Advanced Encryption Standard) is the suitable one.
+So, I got the secred key from morse code which is "S3CR3TK3Y@123456" 
+Then I have used this secret key for AES decyption and got the password for the pdf.
+Password to unlock the pdf: "algorithmissafe"
+the secret code present in the pdf : "Secret Code: CogML24@2024"
